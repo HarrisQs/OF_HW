@@ -57,18 +57,21 @@ void ofApp::update() {
 
 void ofApp::draw() {
 	
+	ofSetColor(255, 255, 255);
 	cam.draw(0, 0);//把攝影機的畫面畫出來
 	// draw the bug holes
 	for (unsigned int i = 0; i<holes.size(); i++) {
-		ofSetColor(0,0,0);
-		ofDrawCircle(holes[i], 10);
-		ofSetColor(200,200,200);
-		ofDrawCircle(holes[i], 7);
+		ofSetColor(100);
+		ofDrawCircle(holes[i], 20);
+		ofSetColor(40);
+		ofDrawCircle(holes[i], 17);
 	}
 	for (unsigned int i = 0; i<bugs.size(); i++) {
 		bugs[i].draw();
 	}
+
 	//戴太陽眼鏡
+	ofSetColor(255, 255, 255);
 	for(int i = 0; i < finder.size(); i++) {
 		ofRectangle object = finder.getObjectSmoothed(i);//取得該物件的大小
 		sunglasses.setAnchorPercent(0.5, 0.5);//將ANCHOR POINT 設置在圖片的中心點

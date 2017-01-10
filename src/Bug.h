@@ -16,7 +16,7 @@ public:
         
         bRemove       = false;
         bSquashed     = false;
-        size          = 10;
+        size          = 50;
         timeBugKilled = 0;
         
         // make a squash shape
