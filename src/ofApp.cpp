@@ -14,6 +14,7 @@ void ofApp::setup()
 void ofApp::update() 
 {
 	cam.update();
+
 }
 
 void ofApp::draw() 
@@ -35,6 +36,7 @@ void ofApp::draw()
 	ofDrawRectangle(750, 150, 380, 50);
 	ofDrawRectangle(900, 0, 380, 50);
 	ofSetColor(255, 0, 0);
-	ofDrawRectangle(750, 0, 150, 50);
+	ofDrawRectangle(750, 0, 150, 50);//goal
+	//Map End
 
 }

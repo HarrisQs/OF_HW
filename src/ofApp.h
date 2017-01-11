@@ -13,5 +13,7 @@ public:
 	void draw();//每次Update()跑完就會跑
 	
 	ofVideoGrabber cam;//為了存取攝影機的
-
+	ofPixels videoInverted;
+	ofTexture videoTexture;
+	ofxCv::ObjectFinder finder;
 };
