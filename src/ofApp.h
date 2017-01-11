@@ -4,7 +4,9 @@
 #include "ofxCv.h"
 
 
-class ofApp : public ofBaseApp {
+class ofApp : public ofBaseApp 
+{
+
 public:
 	void setup();//程式一開始跑的
 	void update();//這個函式將會被重複且固定的呼叫
