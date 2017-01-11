@@ -203,7 +203,6 @@
     <ClCompile Include="..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Bug.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\addons\ofxCv\src\ofxCv.h" />
     <ClInclude Include="..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h" />

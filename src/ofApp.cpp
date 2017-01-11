@@ -14,13 +14,6 @@ void ofApp::setup() {
 	sunglasses.load("sunglasses.png");//載入圖片
 	ofEnableAlphaBlending();//混和的 在這裡不知道混啥= =?
 
-	/*****************************/
-	// add some random holes for the bugs to come out
-	int nHoldes = 10;
-	for (int i = 0; i<nHoldes; i++) {
-		ofVec2f p(ofRandomWidth(), ofRandomHeight());
-		holes.push_back(p);
-	}
 }
 
 void ofApp::update() {
@@ -28,47 +21,12 @@ void ofApp::update() {
 	if(cam.isFrameNew()) {//如果攝影機的所捕捉到的畫面更新的話
 		finder.update(cam);//找找有沒有符合剛剛要找的物件
 	}
-	if ((int)ofRandom(0, 20) == 10) {
-
-		int randomHole = ofRandom(holes.size());
-
-		Bug newBug;
-		newBug.pos = holes[randomHole];
-		newBug.vel.set(ofRandom(-1, 1), ofRandom(-1, 1));
-		bugs.push_back(newBug);
-	}
-
-	for (unsigned int i = 0; i<bugs.size(); i++) {
-
-		bugs[i].update();
-
-		// bug pos and size
-		float   size = bugs[i].size;
-		ofVec2f pos = bugs[i].pos;
-
-		// wrap the bugs around the screen
-		if (pos.x > ofGetWidth() - size)  bugs[i].pos.x = -size;
-		if (pos.x < -size)              bugs[i].pos.x = ofGetWidth() - size;
-		if (pos.y > ofGetHeight() + size) bugs[i].pos.y = -size;
-		if (pos.y < -size)              bugs[i].pos.y = ofGetHeight() - size;
-
-	}
 }
 
 void ofApp::draw() {
 	
 	ofSetColor(255, 255, 255);
 	cam.draw(0, 0);//把攝影機的畫面畫出來
-	// draw the bug holes
-	for (unsigned int i = 0; i<holes.size(); i++) {
-		ofSetColor(100);
-		ofDrawCircle(holes[i], 20);
-		ofSetColor(40);
-		ofDrawCircle(holes[i], 17);
-	}
-	for (unsigned int i = 0; i<bugs.size(); i++) {
-		bugs[i].draw();
-	}
 
 	//戴太陽眼鏡
 	ofSetColor(255, 255, 255);

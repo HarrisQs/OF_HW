@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "ofxCv.h"
 
-#include "Bug.h"
 
 class ofApp : public ofBaseApp {
 public:
