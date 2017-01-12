@@ -14,7 +14,7 @@ void ofApp::setup()
 	red.allocate(1280, 960);
 	green.allocate(1280, 960);
 	blue.allocate(1280, 960);
-	synth.load("sounds/synth.wav");
+	synth.load("sounds/bomb.mp3");
 	synth.setVolume(0.75f);
 }
 
