@@ -20,5 +20,10 @@ public:
 	ofxCvGrayscaleImage filtered, red, green, blue;    //objects for storing grayscale image data
 	ofxCvContourFinder contours;
 	ofSoundPlayer  synth;
+	ofSoundPlayer  Win;
 	bool isBeginGame = false;
+	bool LoseOrWin = false;
+	bool IsFirst = true;
+	ofTrueTypeFont	font;
+
 };

@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include <string>
 
 using namespace ofxCv;
 using namespace cv;
@@ -16,6 +17,9 @@ void ofApp::setup()
 	blue.allocate(1280, 960);
 	synth.load("sounds/bomb.mp3");
 	synth.setVolume(0.75f);
+	Win.load("sounds/crrect_answer3.mp3");
+	Win.setVolume(0.75f);
+	font.load("Sudbury_Basin_3D.ttf", 26);
 }
 
 void ofApp::update() 
@@ -49,6 +53,7 @@ void ofApp::draw()
 {
 	if (isBeginGame)
 	{
+		IsFirst = false;
 		ofSetColor(255, 255, 255);
 		cam.draw(0, 0);//把攝影機的畫面畫出來
 		//Map
@@ -78,7 +83,7 @@ void ofApp::draw()
 			int centerOfCircleY = contours.blobs[i].centroid.y;
 			if (IsBump(centerOfCircleX, centerOfCircleY))//碰撞了輸了
 			{
-				cout << "Lose Game" << endl;
+				LoseOrWin = false;
 				isBeginGame = false;
 				synth.play();
 
@@ -86,7 +91,9 @@ void ofApp::draw()
 			else if ((centerOfCircleX + 5 >= 750 && centerOfCircleX + 5 <= 900)
 				&& (centerOfCircleY >= 0 && centerOfCircleY <= 50)) //沒碰撞而且碰到紅色的 贏了
 			{
-				cout << "Win Game" << endl;
+				isBeginGame = false;
+				LoseOrWin = true;
+				Win.play();
 			}
 		}
 		//抓取顏色 結束
@@ -96,9 +103,17 @@ void ofApp::draw()
 		ofSetColor(255, 255, 255);
 		cam.draw(0, 0);
 		ofSetColor(0, 255, 255);
-		ofDrawRectangle(440, 325, 400, 250);//X 550~600 Y 160~960 3
-	
-	
+		ofDrawRectangle(420, 325, 500, 250);//X 550~600 Y 160~960 3
+		ofSetColor(0, 0, 255);
+		font.drawString("Let's Play Game !!", 450, 365);
+		font.drawString("Press 's' play game. ", 430, 405);
+		ofSetColor(255, 0, 0);
+		if (!IsFirst)
+			if (LoseOrWin)//WIn
+				font.drawString("Congratulations!!", 480, 465);
+			else//Lose
+				font.drawString("You Lose!", 550, 465);	
+		
 	}
 
 }
